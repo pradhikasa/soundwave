@@ -1,0 +1,531 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #00000031;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Background Video */
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    filter: brightness(0.4);
+}
+
+/* Shiny Gradient Button Animation */
+.shiny-gradient-btn {
+    padding: 8px 70px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #8b5cf6);
+    background-size: 400% 400%;
+    animation: gradient-animation 10s ease infinite;
+    transition: transform 0.2s ease;
+}
+
+.shiny-gradient-btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Landing Page */
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* PILIHAN 4: FONT MONOTON */
+.landing-container h1 {
+    font-family: 'Monoton', cursive; /* Terapkan font baru */
+    font-size: 7rem;
+    font-weight: 400;
+    
+    background: linear-gradient(125deg, #3b82f6, #8b5cf6, #ffff, #8b5cf6, #3b82f6);
+    background-size: 400% 100%;
+    animation: shiny-text-animation 4s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1.2; /* Menyesuaikan jarak baris untuk font ini */
+}
+
+.landing-container p {
+    font-size: 1.65rem;
+    color: #ffffff; 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* TAMBAHKAN INI UNTUK MENGUBAH JARAK */
+    margin-top: -45px;      /* Jarak dari tulisan 'SOUNDWAVE' di atasnya */
+    margin-bottom: 45px;   /* Jarak ke tombol di bawahnya */
+}
+
+/* TAMBAHKAN BLOK INI */
+.landing-actions {
+    display: flex; /* Membuat tombol berdampingan */
+    gap: 20px; /* Memberi jarak antar tombol */
+    margin-top: 30px; /* Memberi jarak dari paragraf di atasnya */
+}
+
+/* Login & Register Forms (Initially hidden) */
+.form-container {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* GANTI KODE LAMA ANDA DENGAN SEMUA YANG ADA DI BAWAH INI */
+
+/* 1. Gaya Umum untuk SEMUA Input & Textarea */
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Poppins', sans-serif; /* Memastikan font konsisten */
+    font-size: 1rem;
+    color: #fff;
+    background: #282828;
+    border: 2px solid #535353; /* Border sedikit lebih tebal & kontras */
+    border-radius: 8px; /* Sudut lebih melengkung, lebih modern */
+    outline: none; /* Menghilangkan outline default browser */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+    box-sizing: border-box; /* Mencegah padding merusak layout */
+}
+
+/* 2. Gaya Khusus untuk Textarea */
+.input-group textarea {
+    resize: vertical; /* Hanya izinkan resize ke bawah, tidak ke samping */
+    min-height: 90px; /* Tinggi minimal */
+}
+
+/* 3. Efek Visual saat Input atau Textarea di-klik (FOKUS) */
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #8b5cf6; /* Warna border berubah menjadi ungu (sesuai tema) */
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); /* Efek glow ungu */
+}
+
+/* 4. Gaya untuk placeholder text */
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #888;
+}
+
+.form-box .shiny-gradient-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.switch-form a {
+    color: #a78bfa;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+}
+
+/* Pastikan sidebar bisa menjadi acuan posisi */
+.sidebar {
+    background-color: #000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* PENTING: Jadikan sidebar sebagai acuan posisi */
+}
+
+/* Style untuk Tombol Upload di Pojok Kiri Bawah (Metode Absolute) */
+.upload-btn-sidebar {
+    position: absolute; /* Angkat tombol dari alur normal */
+    bottom: 20px;       /* Jarak 20px dari BAWAH sidebar */
+    left: 20px;
+    right: 400px;         /* Jarak 20px dari KIRI sidebar */
+
+    /* Sesuaikan lebar agar pas dengan padding sidebar */
+    width: calc(100% - 40px); /* Lebar 100% dikurangi padding kiri (20px) dan kanan (20px) */
+}
+
+
+.sidebar .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 15px;
+    color: #b3b3b3;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar nav ul li a:hover, .sidebar nav ul li a.active {
+    background-color: #282828;
+    color: #fff;
+}
+
+.main-content {
+    background-color: #121212;
+    overflow-y: auto;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.content-area {
+    padding: 20px 40px;
+}
+
+.content-area h2 {
+    border-bottom: 1px solid #282828;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Profile Menu */
+.profile-menu {
+    position: relative;
+}
+
+.profile-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #282828;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 180px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #3e3e3e;
+}
+
+/* Song List */
+.song-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.song-card {
+    background: #181818;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.song-card:hover {
+    background: #282828;
+}
+
+.song-card .artwork {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.song-card .title {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-card .artist {
+    color: #b3b3b3;
+    font-size: 0.9em;
+}
+
+.song-card .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.song-card:hover .actions {
+    opacity: 1;
+}
+
+.action-btn {
+    background: #333;
+    border: none;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Modals */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #282828;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content .shiny-gradient-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Keyframes untuk animasi teks mengkilap */
+@keyframes shiny-text-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Anda bisa menaruh kode ini di bagian paling bawah file css */
+
+/* Dekorasi untuk tulisan "SoundWave" di sidebar dashboard */
+.sidebar .logo.shiny-text {
+    /* 1. Mengatur Jenis Font (PENTING: Sesuaikan dengan font di halaman utama) */
+    font-family: 'Monoton', cursive; 
+
+    /* 2. Mengatur ukuran dan jarak */
+    font-size: 1.70rem;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 60px;
+
+    /* 3. Membuat background gradient biru-ungu */
+    background: linear-gradient(125deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6, #3b82f6);
+    
+    /* 4. Membuat background-nya bergerak (animasi kilap) */
+    background-size: 400% 100%;
+    animation: shiny-text-animation 4s ease-in-out infinite;
+
+    /* 5. Ini adalah trik utamanya: */
+    /* "Potong" background sesuai bentuk teks */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Buat warna teks aslinya jadi transparan agar background terlihat */
+    color: transparent;
+}
+
+/* ===== CSS untuk Interaksi Lagu (Favorit & Playlist) ===== */
+
+.song-card .song-interactions {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.song-card:hover .song-interactions {
+    opacity: 1;
+}
+
+.song-interactions .action-btn {
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(5px);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.favorite-btn.active i {
+    color: #ef4444; /* Warna merah untuk hati yang aktif */
+}
+
+/* Dropdown untuk "Add to Playlist" */
+.more-options {
+    position: relative;
+}
+
+.options-dropdown {
+    display: none; /* Sembunyi secara default */
+    position: absolute;
+    bottom: 110%; /* Muncul di atas tombol */
+    right: 0;
+    background-color: #282828;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    width: 200px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.options-dropdown.show {
+    display: block; /* Tampilkan saat dibutuhkan */
+}
+
+.options-dropdown .dropdown-header {
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #fff;
+    border-bottom: 1px solid #3e3e3e;
+}
+
+.options-dropdown a, .options-dropdown span {
+    display: block;
+    padding: 10px 15px;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.options-dropdown a:hover {
+    background-color: #3e3e3e;
+    color: #fff;
+}
+
+.options-dropdown .dropdown-divider {
+    height: 1px;
+    background-color: #3e3e3e;
+    margin: 5px 0;
+}
+
+.options-dropdown .no-playlist {
+    font-style: italic;
+    color: #888;
+}
+
+.error-message {
+    color: #fca5a5;
+    background-color: rgba(239, 68, 68, 0.2);
+    border: 1px solid #ef4444;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    text-align: center;
+}
